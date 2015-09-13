@@ -45,6 +45,12 @@
            args="messages /camera/depth/image 5 /camera/data_throttled_depth_image"
            output="screen">
      </node>
+     <node pkg="topic_tools"
+           type="throttle"
+           name="cloud_throttle"
+           args="messages /camera/depth_registered/points 5 /camera/data_throttled_points"
+           output="screen">
+     </node>
   </group>
 
   <!--Launch Rviz-->
