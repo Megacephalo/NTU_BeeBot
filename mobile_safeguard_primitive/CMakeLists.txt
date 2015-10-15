@@ -182,5 +182,5 @@ target_link_libraries (slammot_y_shaped_tube ${catkin_LIBRARIES})
 #add_executable (preProcessing src/preProcessing.cpp)
 #target_link_libraries (preProcessing ${catkin_LIBRARIES} ${PCL_LIBRARIES} )
 
-add_executable(people_filter src/people_filter.cpp )
-target_link_libraries (people_filter ${catkin_LIBRARIES} ${PCL_LIBRARIES} )
+#add_executable(people_filter src/people_filter.cpp )
+#target_link_libraries (people_filter ${catkin_LIBRARIES} ${PCL_LIBRARIES} )

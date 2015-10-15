@@ -222,7 +222,7 @@ cloud_callback (const sensor_msgs::PointCloud2ConstPtr& cloud_msg){
    sensor_msgs::Image depthImage ;
 
    // RGB Topic
-   pcl::toROSMsg ( *no_man_cloud, rgbImage ) ;
+   pcl::toROSMsg (const *no_man_cloud, rgbImage ) ;
 
    // Depth Topic
    pcl::PointCloud<pcl::PointXYZ> cloud_xyz ;

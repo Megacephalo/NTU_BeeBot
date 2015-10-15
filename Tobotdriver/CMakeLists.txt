@@ -90,6 +90,10 @@ catkin_package(
   DEPENDS system_lib
 )
 
+# added by Charly on Sept 10, 2015
+# this line is for clearer directory display
+set (includes include/motor_drivers)
+
 ###########
 ## Build ##
 ###########
@@ -97,40 +101,45 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
-include_directories(include/motor_drivers ${catkin_INCLUDE_DIRS})
+include_directories(include/motor_drivers include ${catkin_INCLUDE_DIRS})
 
 add_executable(driver src/driver.cpp)
 target_link_libraries(driver ${catkin_LIBRARIES})
 
-add_executable(scribt src/Test/scribetest.cpp)
-target_link_libraries(scribt ${catkin_LIBRARIES} -lboost_unit_test_framework -lserial)
+#add_executable(scribt src/Test/scribetest.cpp)
+#target_link_libraries(scribt ${catkin_LIBRARIES} -lboost_unit_test_framework -lserial)
 
-add_executable(plat src/Test/platest.cpp)
-target_link_libraries(plat ${catkin_LIBRARIES} -Wall -g -lboost_unit_test_framework -lserial)
+#add_executable(plat src/Test/platest.cpp)
+#target_link_libraries(plat ${catkin_LIBRARIES} -Wall -g -lboost_unit_test_framework -lserial)
 
-add_executable(poetet src/Test/poetetest.cpp)
-target_link_libraries(poetet ${catkin_LIBRARIES} -lboost_unit_test_framework -lserial)
+#add_executable(poetet src/Test/poetetest.cpp)
+#target_link_libraries(poetet ${catkin_LIBRARIES} -lboost_unit_test_framework -lserial)
 
-add_executable(pidt src/Test/pidtest.cpp)
-target_link_libraries(pidt ${catkin_LIBRARIES} -lboost_unit_test_framework -lserial)
+#add_executable(pidt src/Test/pidtest.cpp)
+#target_link_libraries(pidt ${catkin_LIBRARIES} -lboost_unit_test_framework -lserial)
 
-add_executable(serialt src/Test/serialtest.cpp)
-target_link_libraries(serialt ${catkin_LIBRARIES} -lboost_unit_test_framework -lserial)
+#add_executable(serialt src/Test/serialtest.cpp)
+#target_link_libraries(serialt ${catkin_LIBRARIES} -lboost_unit_test_framework -lserial)
 
-add_executable(commmunicationtest src/Test/commut.cpp)
-target_link_libraries(commmunicationtest ${catkin_LIBRARIES} -lboost_unit_test_framework -lserial)
+#add_executable(commmunicationtest src/Test/commut.cpp)
+#target_link_libraries(commmunicationtest ${catkin_LIBRARIES} -lboost_unit_test_framework -lserial)
 
-add_executable(TobotNode src/DriverNode.cpp)
+add_executable(TobotNode src/DriverNode.cpp 
+                         ${includes}/Scribe.hpp 
+                         ${includes}/Poete.hpp 
+                         ${includes}/Robot.hpp 
+                         ${includes}/Filter.hpp 
+               ) 
 target_link_libraries(TobotNode ${catkin_LIBRARIES} -lserial)
-add_dependencies(TobotNode motor_drivers_generate_messages_cpp)
+add_dependencies(TobotNode motor_drivers_generate_messages_cpp -lboost_unit_test_framework)
 
-add_executable(TobotNodeRobot0 src/DriverNodeRobot0.cpp)
-target_link_libraries(TobotNodeRobot0 ${catkin_LIBRARIES} -lserial)
-add_dependencies(TobotNodeRobot0 motor_drivers_generate_messages_cpp)
+#add_executable(TobotNodeRobot0 src/DriverNodeRobot0.cpp)
+#target_link_libraries(TobotNodeRobot0 ${catkin_LIBRARIES} -lserial)
+#add_dependencies(TobotNodeRobot0 motor_drivers_generate_messages_cpp)
 
-add_executable(TobotNodeRobot1 src/DriverNodeRobot1.cpp)
-target_link_libraries(TobotNodeRobot1 ${catkin_LIBRARIES} -lserial)
-add_dependencies(TobotNodeRobot1 motor_drivers_generate_messages_cpp)
+#add_executable(TobotNodeRobot1 src/DriverNodeRobot1.cpp)
+#target_link_libraries(TobotNodeRobot1 ${catkin_LIBRARIES} -lserial)
+#add_dependencies(TobotNodeRobot1 motor_drivers_generate_messages_cpp)
 
 #add_executable(TobotNodenoodom src/DriverNodenoodom.cpp)
 #target_link_libraries(TobotNodenoodom ${catkin_LIBRARIES} -lserial)

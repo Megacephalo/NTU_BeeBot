@@ -75,7 +75,7 @@ class SerialPortControl{
 		//_RWHEEL="1";
 		//std::string PORT ="/dev/ttyUSB0";
 		//std::string PORT;		
-		std::string PORT="/dev/ttyUSB1";
+		std::string PORT="/dev/ttyUSB0";
 		double Baud;
 		_pnode.setParam("Port", PORT);
 //		_pnode.param<std::string>("Port", PORT, "/dev/ttyUSB2");
@@ -92,13 +92,12 @@ class SerialPortControl{
                 std::string defaultPort = "/dev/ttyUSB1" ;
                 std::string port_ns = "/dev/ttyUSB" ;
 
-                if (PORT.compare(defaultPort) != 0 ) {
+                if (PORT.compare(defaultPort) !=0 && ! _motor.good() ) {
                   for (int i = 0 ; i < 10 ; i++) {
                     PORT = port_ns + patch::to_string( i ) ;
-                    if ( _motor.good() ) {
-         	      _pnode.setParam("Port", PORT);             
-                      break ;
-                    }
+         	    _pnode.setParam("Port", PORT); 
+		    _motor.Open(PORT);
+                    if ( _motor.good() ) { break ; }
                   }
                 }
                 // ***********************************************************************
@@ -108,7 +107,7 @@ class SerialPortControl{
 		//No parity
 		 if ( ! _motor.good() ){
 			std::cerr << "[" << __FILE__ << ":" << __LINE__ << "] "
-			<< "ABC:Error: Could not open serial port "<<PORT
+			<< "Error: Could not open serial port "<<PORT
 			<< std::endl ;
 			exit(1) ;
 		}

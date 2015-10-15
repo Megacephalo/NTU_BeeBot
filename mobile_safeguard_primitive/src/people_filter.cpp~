@@ -222,7 +222,7 @@ cloud_callback (const sensor_msgs::PointCloud2ConstPtr& cloud_msg){
    sensor_msgs::Image depthImage ;
 
    // RGB Topic
-   pcl::toROSMsg ( *no_man_cloud, rgbImage ) ;
+   pcl::toROSMsg (const *no_man_cloud, rgbImage ) ;
 
    // Depth Topic
    pcl::PointCloud<pcl::PointXYZ> cloud_xyz ;
@@ -264,8 +264,8 @@ main (int argc, char** argv){
   no_people_pub = nh.advertise <sensor_msgs::PointCloud2> (neat_cluster_topic, 1) ;
 
   // In case that the next node does not accept depth_registered/points
-  rtabmap_rgbImage_pub = nh.advertise<sensor_msgs::Image> ("rgb/Image", 1) ;
-  rtabmapDepthImage_pub = nh.advertise<sensor_msgs::Image> ("depth/image", 1) ;
+  rtabmap_rgbImage_pub = nh.advertise<sensor_msgs::Image> ("rgbImage", 1) ;
+  rtabmapDepthImage_pub = nh.advertise<sensor_msgs::Image> ("depthimage", 1) ;
 
   // Spin
   ros::spin () ;

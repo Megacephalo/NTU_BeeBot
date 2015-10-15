@@ -95,10 +95,6 @@ find_package(catkin REQUIRED COMPONENTS
 #  DEPENDS system_lib
 # )
 
-catkin_package(
-INCLUDE_DIRS include
-CATKIN_DEPENDS roscpp std_msgs nodelet image_transport tf tf_conversions tf2_ros eigen_conversions laser_geometry pcl_onversions 
-)
 ###########
 ## Build ##
 ###########

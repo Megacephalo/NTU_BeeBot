@@ -55,8 +55,9 @@ FONCTIONS
 *********************************************************************************************************/
 
 inline void Scribe::callBackFunc(const geometry_msgs::Twist::ConstPtr& msg, Robot* plat){
+	ROS_ERROR( "sam:enter Scribe::callBackFunc func!");
 	if(_verbose==true){
-		std::cout << "Command receive by the sribe my general and send through the new Robot :D"<<std::endl;
+		std::cout << "Command receive by the scribe my general and send through the new Robot :D"<<std::endl;
 		std::cout << *msg <<std::endl;
 	}
 	_cmd=*msg;

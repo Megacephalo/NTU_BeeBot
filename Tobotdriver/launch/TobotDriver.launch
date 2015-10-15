@@ -1,6 +1,6 @@
 <launch>  
 	<param name="tf_prefix" value="" />
-  	<node name="TobotDriver" pkg="tobotdrivers" type="TobotNode">
+  	<node name="TobotDriver" pkg="tobotdrivers" type="TobotNode" output="screen">
     		<rosparam file="$(find tobotdrivers)/config/robot.yaml" command="load" />
   	</node>
 </launch>
