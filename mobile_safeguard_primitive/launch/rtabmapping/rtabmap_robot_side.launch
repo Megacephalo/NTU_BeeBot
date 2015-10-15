@@ -51,6 +51,15 @@
            args="messages /camera/depth_registered/points 5 /camera/data_throttled_points"
            output="screen">
      </node>
+
+    <!-- My own topic_tools launch for Spencer. Output:: /camera/data_throttled_depth_image (don't get confused with /camera/data_throttled_image_depth)-->
+     <!-- Sampling rate at 1 Hz -->
+     <node pkg="topic_tools" 
+                type="throttle" 
+                name="my_camera_throttle" 
+                arg="messages /camera/depth/image 1 /camera/data_throttled_depth_image" 
+                output="screen">
+     </node>
   </group>
 
   <!--Launch Rviz-->

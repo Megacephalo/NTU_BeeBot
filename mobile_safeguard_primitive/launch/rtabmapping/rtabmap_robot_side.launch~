@@ -38,8 +38,8 @@
       <remap from="rgb/camera_info_out" to="/camera/data_throttled_camera_info"/>
     </node>
 
+<<<<<<< HEAD
      <!-- My own topic_tools launch for spencer. Output: /camera/data_throttled_depth_image (don't get confused with camera/data_throttled_image_depth)-->
-<!--
      <node pkg="topic_tools"
            type="throttle"
            name="my_camera_throttle"
@@ -52,7 +52,17 @@
            args="messages /camera/depth_registered/points 5 /camera/data_throttled_points"
            output="screen">
      </node>
--->
+=======
+    <!-- My own topic_tools launch for Spencer. Output:: /camera/data_throttled_depth_image (don't get confused with /camera/data_throttled_image_depth)-->
+     <!-- Sampling rate at 1 Hz -->
+     <node pkg="topic_tools" 
+                type="throttle" 
+                name="my_camera_throttle" 
+                arg="messages /camera/depth/image 1 /camera/data_throttled_depth_image" 
+                output="screen">
+     </node>
+     
+>>>>>>> 5468b9acef500d8f6ada5739ff4667128fa83c98
   </group>
 
   <!--Launch Rviz-->
