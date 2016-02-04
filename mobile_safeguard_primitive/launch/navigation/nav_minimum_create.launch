@@ -1,9 +1,9 @@
 <launch>
         <arg name="teleop" default="false"/>
+        <arg name="urdf_file" default="" />
 
 	<!--launch tf-->
-	<include file="$(find mobile_safeguard_primitive)/launch/rtabmapping/tf_config/my_start_tf.launch">
-        </include>
+	<include file="$(find mobile_safeguard_primitive)/launch/rtabmapping/tf_config/my_start_tf.launch"/>
 
 	<!--launch motor driver-->
 	<include file="$(find tobotdrivers)/launch/TobotDriver.launch"/>
