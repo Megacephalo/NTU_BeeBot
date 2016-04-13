@@ -142,35 +142,11 @@
   <xacro:fb_wheel prefix="front" reflect="1"/>
   <xacro:fb_wheel prefix="back" reflect="-1"/>
 
-  <!--CAMERA-->
-  <link name="camera_link">
-    <visual>
-      <geometry>
-        <box size="0.035 0.178 0.024"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="black"/>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-          <box size="0.035 0.185 0.025"/>
-      </geometry>
-    </collision>
-    <inertial>
-        <mass value="0.200" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="5.8083e-4" ixy="0" ixz="0" 
-                 iyy="3.0833e-5" iyz="0" 
-                 izz="5.9083e-4" />
-    </inertial>
-  </link>
-  <joint name="camera" type="fixed">
-    <parent link="base_link"/>
-    <child link="camera_link"/>
-    <!--<origin xyz="${width} 0 ${GROUND_CLEARANCE-bodylen+posz_camera} " rpy="0 0 0"/>-->
+  <!--Asus Xtion sensor -->
+  <xacro:include filename="$(find hector_sensors_description)/urdf/asus_camera.urdf.xacro" />
+  <xacro:asus_camera name="camera" parent="base_link">
     <origin xyz="${width + 0.07} 0 0.05 " rpy="0 0 0"/>
-  </joint>
+  </xacro:asus_camera>
 
   <!--LASER-->
   <link name="hokuyo_link">
