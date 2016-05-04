@@ -1,5 +1,6 @@
 <launch>
-
+ 
+  <arg name="rviz_on" default="false" />
   <arg name="model" default="$(find simulation_tobot)/beebot_description/urdf/beebot.xacro"/>
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find simulation_tobot)/beebot_description/rviz/urdf.rviz" />
@@ -9,6 +10,7 @@
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
-
+  <group if="$(arg rviz_on)">
+      <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  </group>
 </launch>

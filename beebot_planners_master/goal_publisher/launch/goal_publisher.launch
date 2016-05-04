@@ -6,7 +6,7 @@ Usage:
    PoseStamped goal topic.
 -->
   <node pkg="goal_publisher" type="goal_pub" name="goal_pub" >
-    <param name="goal_x" value="0.0" type="double" />
-    <param name="goal_y" value="5.0" type="double" />
+    <rosparam param="goal_x" subst_value="True" >0.0</rosparam>
+    <rosparam param="goal_y" subst_value="True" >5.0</rosparam>
   </node>
 </launch>

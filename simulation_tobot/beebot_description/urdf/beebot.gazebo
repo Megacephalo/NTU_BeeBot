@@ -8,25 +8,6 @@
     </plugin>
   </gazebo>
 
-  <!--Gazebo plugin for differential drive control-->
-  <!--gazebo>
-    <plugin name="differential_drive_controller" filename="libDiffDrivePlugin.so">
-      <robotparam>beebot</robotparam>
-      <alwaysOn>true</alwaysOn>
-      <updateRate>100.0</updateRate>
-      <left_joint>left_wheel_joint</left_joint>
-      <right_joint>right_wheel_joint</right_joint>
-      <wheelSeparation>0.4238</wheelSeparation>
-      <wheelDiameter>0.2388</wheelDiameter>
-      <torque>5</torque>
-      <topicName>/beebot_diff_drive_controller/cmd_vel</topicName>
-      <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>/beebot_diff_drive_controller/odom</odometryTopic>
-      <odometryFrame>/beebot_diff_drive_controller/odom</odometryFrame>
-      <robotBaseFrame>base_link</robotBaseFrame>
-    </plugin>
-  </gazebo-->
-
   <!--Gazebo frames setup-->
   <gazebo reference="base_link">
     <material>Gazebo/Yellow</material>
