@@ -82,6 +82,7 @@
       <child link="${prefix}_wheel"/>
       <axis xyz="0 1 0"/>
       <origin xyz="0 ${-yactwhloffset*reflect} ${-(bodylen/2)+GROUND_CLEARANCE+0.031}" rpy="0 0 0"/>
+      <calibration rising="0.0" falling="0.0" />    <!--Calibration added-->
     </joint>
     <transmission name="${prefix}_wheel_trans" type="SimpleTransmission">
       <type>transmission_interface/SimpleTransmission</type>
@@ -127,6 +128,7 @@
       <child link="${prefix}_wheel"/>
       <axis xyz="0 1 0"/>
       <origin xyz="${xpsvwhloffset*reflect} 0 ${ -(bodylen/2) + 0.02786}" rpy="0 0 0"/>
+      <calibration rising="0.0" falling="0.0" />   <!--calibration added here-->
     </joint>
     <transmission name="${prefix}_wheel_trans" type="SimpleTransmission">
       <type>transmission_interface/SimpleTransmission</type>
