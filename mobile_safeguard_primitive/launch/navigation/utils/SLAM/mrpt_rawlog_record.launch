@@ -1,0 +1,11 @@
+<launch>
+
+  <node pkg="mrpt_rawlog" type="rawlog_record_node" name="rawlog_record_node" output="screen">
+    <remap from="odom" to="/beebot_diff_drive_controller/odom"/> 
+    <remap from="scan" to="/beebot/laser/scan"/>
+    <param name="odom_frame_id" value="odom" />
+    <param name="base_frame_id" value="base_link" /> 
+    <param name="raw_log_folder" value="$(find mobile_safeguard_primitive)/launch/navigation/utils/rawlog"/> 
+  </node>
+
+</launch>

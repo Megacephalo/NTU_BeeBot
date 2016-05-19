@@ -15,7 +15,14 @@ beebot_diff_drive_controller:
   left_wheel: 'left_wheel_joint'
   right_wheel: 'right_wheel_joint'
 
-  wheel_separation: 0.8476
+  wheel_separation: 0.5161
+  wheel_radius: 0.075
+
+
+  # Wheel separation and radius multipliers
+  wheel_separation_multiplier: 1.0 # default: 1.0
+  wheel_radius_multiplier    : 1.0 # default: 1.0
+
 
   # Odometry covariances for the encoder output of the robot. These values should
   # be tuned to your robot's sample odometry data, but these values are a good place
@@ -40,14 +47,4 @@ beebot_diff_drive_controller:
       has_acceleration_limits: true
       max_acceleration       : 6.0   # rad/s^2
 
-#r2d2_head_controller:
-#type: "position_controllers/JointPositionController"
-#joint: head_swivel
-
-#r2d2_gripper_controller:
-#type: "position_controllers/JointGroupPositionController"
-#joints:
-#- gripper_extension
-#- left_gripper_joint
-#- right_gripper_joint
 
