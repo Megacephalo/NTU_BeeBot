@@ -1,5 +1,6 @@
 
-Radius: 0.26
+##Radius: 0.26
+Radius: 0.075
 WheelRadius: 0.075
 NodeLeftWheel: '3'
 NodeRightWheel: '2'
